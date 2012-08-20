@@ -51,7 +51,8 @@
         NSDictionary *layoutDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"WidgetTime", @"03", 
                                     @"WidgetWeather", @"13", 
-                                    @"WidgetCalendar", @"23", 
+                                    @"WidgetCalendar", @"23",
+									@"WidgetCamW",@"25",
                                     nil];
         [prefs setObject:layoutDict forKey:@"watchLayout"];
     }
@@ -103,7 +104,7 @@
     self.notifMgr = [MWMNotificationsManager sharedManager];
     [MWManager sharedManager].delegate = masterViewController;
     
-    allWidgets = [NSMutableArray arrayWithObjects:@"WidgetTime", @"WidgetWeather", @"WidgetCalendar", @"WidgetPhoneStatus", nil];
+    allWidgets = [NSMutableArray arrayWithObjects:@"WidgetTime", @"WidgetWeather", @"WidgetCalendar", @"WidgetPhoneStatus", @"WidgetCamW", nil];
     
     // Customize navigationbar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"barbg.png"] forBarMetrics:UIBarMetricsDefault];

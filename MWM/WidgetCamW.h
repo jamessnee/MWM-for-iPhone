@@ -1,3 +1,5 @@
+/* ORIGINAL LICENCE */
+
 /*****************************************************************************
  *  Copyright (c) 2011 Meta Watch Ltd.                                       *
  *  www.MetaWatch.org                                                        *
@@ -18,19 +20,18 @@
  *                                                                           *
  *****************************************************************************/
 
-//
-//  WidgetWeather.h
-//  MWM
-//
+/* ORIGINAL HEADER */
 //  Created by Siqi Hao on 4/20/12.
 //  Copyright (c) 2012 Meta Watch. All rights reserved.
-//
+
+/* MODIFIED HEADER */
+//	Modified by James Snee on 20/8/2012
 
 #import <Foundation/Foundation.h>
 #import "MWMWidgetDelegate.h"
-#import "MWWeatherMonitor.h"
+#import "CamWeather_Monitor.h"
 
-@interface WidgetWeather : NSObject <UITextFieldDelegate, UIActionSheetDelegate, MWWeatherMonitorDelegate>
+@interface WidgetCamW : NSObject <UITextFieldDelegate, UIActionSheetDelegate, CamWeather_Delegate>
 
 // MetaWatch Widget Interface
 @property (nonatomic, strong) UIView *preview;
@@ -43,24 +44,15 @@
 @property (nonatomic) CGImageRef previewRef;
 @property (nonatomic, weak) id delegate;
 
+@property (nonatomic, strong) NSDictionary *weatherDict;
+
+@property (nonatomic, strong)CamWeather_Monitor *cam_weather_monitor;
+
 + (CGSize) getWidgetSize;
 
 - (void) update:(NSInteger)timestamp;
 - (void) prepareToUpdate;
 - (void) stopUpdate;
-
-// Weather Widget Specific
-@property (nonatomic) BOOL received;
-@property (nonatomic) BOOL geoLocationEnabled;
-@property (nonatomic, strong) NSDate *updatedTime;
-@property (nonatomic) BOOL useCelsius;
-@property (nonatomic, strong) NSString *currentCityName;
-@property (nonatomic) NSInteger weatherUpdateIntervalInMins;
-@property (nonatomic, strong) NSDictionary *weatherDict;
-
-
-- (void) toggleValueChanged:(id)sender;
-- (void) updateBtnPressed:(id)sender;
 
 @end
 

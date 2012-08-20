@@ -171,7 +171,7 @@ static MWWeatherMonitor *sharedMonitor;
             if (![cityInUse isEqualToString:[[placemarks objectAtIndex:0] locality]]) {
                 NSString *locationString = [NSString stringWithFormat:@"%@,%@", [[placemarks objectAtIndex:0] locality], [[placemarks objectAtIndex:0] country]];
                 
-                NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@&hl=us", kKAWeatherBaseURL, [locationString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+                NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@&hl=uk", kKAWeatherBaseURL, [locationString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
                 NSLog(@"Geo:%@", url);
                 if (url) {
                     cityInUse = [[NSString stringWithString:[[placemarks objectAtIndex:0] locality]] retain];

@@ -102,6 +102,7 @@
         NSUserDefaults *perfs = [NSUserDefaults standardUserDefaults];
         NSDictionary *layoutDict = [[perfs objectForKey:@"watchLayout"] mutableCopy];
         NSString *widgetClassName = [appDelegate.allWidgets objectAtIndex:indexPath.row];
+		NSLog(@"DEBUG -- Here with widget name: %@", widgetClassName);
         [layoutDict setValue:widgetClassName forKeyPath:[NSString stringWithFormat:@"%d3", rowSegCtrl.selectedSegmentIndex+1]];
         [perfs setObject:layoutDict forKey:@"watchLayout"];
         [perfs synchronize];

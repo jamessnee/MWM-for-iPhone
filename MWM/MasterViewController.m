@@ -375,8 +375,11 @@
         NSLog(@"Setup: %@", widgetClassName);
     }
     
+	NSLog(@"DEBUG -- Here with widget name %@",widgetClassName);
     Class widgetClass = NSClassFromString(widgetClassName);
     id widget = [[widgetClass alloc] init];
+	
+	NSLog(@"DEBUG -- Setting up %@",[[widget class]description]);
 
     if ([widget respondsToSelector:@selector(setDelegate:)]) {
         [widget setDelegate:self];

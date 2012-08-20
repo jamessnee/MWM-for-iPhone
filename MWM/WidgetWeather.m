@@ -53,7 +53,7 @@ static CGFloat widgetHeight = 32;
         received = NO;
         useCelsius  = YES;
         currentCityName = @"Helsinki";
-        updateIntvl = 3600;
+        updateIntvl = 60;
         updatedTimestamp = 0;
         
         [[MWWeatherMonitor sharedMonitor] setDelegate:self];
@@ -66,7 +66,7 @@ static CGFloat widgetHeight = 32;
         } else {
             useCelsius = [[dataDict valueForKey:@"useC"] boolValue];
             self.currentCityName = [dataDict valueForKey:@"city"];
-            updateIntvl = [[dataDict valueForKey:@"updateInterval"] integerValue];
+            //updateIntvl = [[dataDict valueForKey:@"updateInterval"] integerValue];
             NSLog(@"currentCityName: %@", currentCityName);
             [[MWWeatherMonitor sharedMonitor] setCity:currentCityName];
         }
@@ -168,6 +168,7 @@ static CGFloat widgetHeight = 32;
 }
 
 - (void) drawNullWeatherWithText:(NSString*)drawingText {
+	NSLog(@"DRAWING WEATHER");
     UIFont *font = [UIFont fontWithName:@"MetaWatch Small caps 8pt" size:8];   
     //UIFont *largeFont = [UIFont fontWithName:@"MetaWatch Large 16pt" size:16];
     CGSize size  = CGSizeMake(widgetWidth, widgetHeight);
@@ -200,6 +201,7 @@ static CGFloat widgetHeight = 32;
 }
 
 - (void) drawWeather {
+	NSLog(@"DRAWING WEATHER");
     if (weatherDict == nil) {
         [self drawNullWeatherWithText:@"No Weather Data"];
         return;
